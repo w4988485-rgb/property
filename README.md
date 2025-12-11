@@ -28,13 +28,21 @@ pip install -r requirements.txt
 
 ## Usage
 
-To run the application:
+To run the application in development mode:
 
 ```bash
 python app.py
 ```
 
+To run in production mode (without debug):
+
+```bash
+FLASK_DEBUG=False python app.py
+```
+
 Then open your browser and navigate to `http://localhost:5000/` to see all files in the repository.
+
+**Note**: For production deployments, it's recommended to use a production WSGI server like Gunicorn or uWSGI instead of the built-in Flask development server.
 
 ---
 
