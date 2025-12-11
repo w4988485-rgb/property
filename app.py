@@ -11,9 +11,12 @@ def index():
     
     # Get all files and directories
     files = []
+    # Directories to exclude
+    excluded_dirs = {'.git', '__pycache__', 'venv', 'node_modules', '.vscode', '.idea'}
+    
     for root, dirs, filenames in os.walk(root_dir):
-        # Skip hidden directories like .git, __pycache__, etc.
-        dirs[:] = [d for d in dirs if not d.startswith('.') and d != '__pycache__']
+        # Skip hidden directories and common excluded directories
+        dirs[:] = [d for d in dirs if not d.startswith('.') and d not in excluded_dirs]
         
         # Get relative path from root
         rel_root = os.path.relpath(root, root_dir)
@@ -32,4 +35,6 @@ def index():
     return render_template('index.html', files=files)
 
 if __name__ == '__main__':
+    # Note: debug=True should only be used in development
+    # In production, use a WSGI server like Gunicorn or uWSGI
     app.run(debug=True, host='0.0.0.0', port=5000)
