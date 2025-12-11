@@ -1,20 +1,16 @@
-# property
 # Property Project
 
-This repository contains the code for the **Property Project**. This project is designed to [explain the purpose of the project here—e.g., manage real estate properties, calculate values, etc.].
+A simple web application that displays all files in the repository on the root path.
 
 ## Features
 
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
+- Web interface to view all files in the repository
+- Clean and simple UI
+- Real-time file listing
 
 ## Requirements
 
-If you're working on specific frameworks or tools, mention them here. For example:
 - Python 3.8+
-- Node.js 16+
-- Django
 - Flask
 
 ## Installation
@@ -26,9 +22,27 @@ git clone https://github.com/w4988485-rgb/property.git
 # Navigate into the project directory
 cd property
 
-# Example setup commands:
+# Install dependencies
 pip install -r requirements.txt
 ```
+
+## Usage
+
+To run the application in development mode:
+
+```bash
+python app.py
+```
+
+To run in production mode (without debug):
+
+```bash
+FLASK_DEBUG=False python app.py
+```
+
+Then open your browser and navigate to `http://localhost:5000/` to see all files in the repository.
+
+**Note**: For production deployments, it's recommended to use a production WSGI server like Gunicorn or uWSGI instead of the built-in Flask development server.
 
 ---
 
