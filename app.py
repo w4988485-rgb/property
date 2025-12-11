@@ -35,6 +35,8 @@ def index():
     return render_template('index.html', files=files)
 
 if __name__ == '__main__':
-    # Note: debug=True should only be used in development
-    # In production, use a WSGI server like Gunicorn or uWSGI
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    # Use environment variable to control debug mode
+    # Set FLASK_DEBUG=False in production
+    debug_mode = os.environ.get('FLASK_DEBUG', 'True').lower() == 'true'
+    # In production, use a WSGI server like Gunicorn or uWSGI instead
+    app.run(debug=debug_mode, host='0.0.0.0', port=5000)
